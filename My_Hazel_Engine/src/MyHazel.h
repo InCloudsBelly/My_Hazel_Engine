@@ -4,6 +4,8 @@
 
 #include "MyHazel/Application.h"
 
+#include "MyHazel/Layer.h"
+
 //---------SpdLog---------------
 #include "MyHazel/Log.h"
 

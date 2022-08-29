@@ -9,6 +9,16 @@ workspace "My_Hazel_Engine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solition directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "My_Hazel_Engine/vendor/GLFW/include"
+IncludeDir["GLAD"] = "My_Hazel_Engine/vendor/GLAD/include"
+IncludeDir["imGui"] = "My_Hazel_Engine/vendor/imGui/include"
+
+include "My_Hazel_Engine/vendor/GLFW"
+include "My_Hazel_Engine/vendor/GLAD"
+include "My_Hazel_Engine/vendor/imGui"
+
 project "My_Hazel_Engine"
     location "My_Hazel_Engine"
     kind "SharedLib"
@@ -16,6 +26,9 @@ project "My_Hazel_Engine"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+    pchheader "hzpch.h"
+    pchsource "My_Hazel_Engine/src/hzpch.cpp"
 
     files
     {
@@ -26,7 +39,18 @@ project "My_Hazel_Engine"
     includedirs
     {
         "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.GLAD}",
+        "%{IncludeDir.imGui}"
+    }
+
+    links
+    {
+        "GLFW",
+        "GLAD",
+        "imGui",
+        "opengl32.lib"
     }
 
     filter "system:windows"--windows平台的配置
@@ -37,7 +61,8 @@ project "My_Hazel_Engine"
         defines
         {
             "HZ_PLATFORM_WINDOWS",
-            "HZ_BUILD_DLL"
+            "HZ_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands -- build后的自定义命令
@@ -48,15 +73,18 @@ project "My_Hazel_Engine"
 
     filter "configurations:Debug"
         defines "HZ_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
      
         
     filter "configurations:Release"
         defines "HZ_RELEASE"
+        buildoptions "/MD"
         optimize "On"
     
     filter "configurations:Dist"
         defines "HZ_DIST"
+        buildoptions "MD"
         optimize "On"
 
 
@@ -100,13 +128,16 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "HZ_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
      
         
     filter "configurations:Release"
         defines "HZ_RELEASE"
+        buildoptions "MD"
         optimize "On"
     
     filter "configurations:Dist"
         defines "HZ_DIST"
+        buildoptions "MD"
         optimize "On"

@@ -1,9 +1,6 @@
 #pragma once
-
+#include "hzpch.h"
 #include "MyHazel/Core.h"
-
-#include <string>
-#include <functional>
 
 namespace MyHazel {
 
@@ -12,7 +9,7 @@ namespace MyHazel {
 		WindowClose, WindowResize, WindowFocus, WindowsLostFocus, WindowMoved,
 		AppTick, AppUpdate, AppRender,
 		KeyPressed, KeyReleased,
-		MouseButtonPressed,MouseButtonRelease,MouseMoved,MouseScrolled
+		MouseButtonPressed,MouseButtonReleased,MouseMoved,MouseScrolled
 
 	};
 
@@ -36,6 +33,8 @@ namespace MyHazel {
 	{
 		friend class EventDispatcher;
 	public:
+		bool Handled = false;
+
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
@@ -46,8 +45,6 @@ namespace MyHazel {
 			return GetCategoryFlags() & category;
 		}
 
-	protected:
-		bool m_Handled = false;
 
 	};
 
@@ -65,7 +62,7 @@ namespace MyHazel {
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.m_Handled = func(*(T*)&m_Event);
+				m_Event.Handled = func(*(T*)&m_Event);
 				return true;
 			}
 			return false;
