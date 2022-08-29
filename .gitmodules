@@ -2,3 +2,9 @@
 	path = My_Hazel_Engine/vendor/spdlog
 	url = https://github.com/gabime/spdlog
  
+[submodule "My_Hazel_Engine/vendor/GLFW"]
+	path = My_Hazel_Engine/vendor/GLFW
+	url = https://github.com/TheCherno/glfw
+[submodule "My_Hazel_Engine/vendor/imGui"]
+	path = My_Hazel_Engine/vendor/imGui
+	url = https://github.com/TheCherno/imgui.git
