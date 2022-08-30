@@ -4,10 +4,10 @@
 
 namespace MyHazel {
 
-	class HAZEL_API WindowResizeEvent :public Event
+	class HAZEL_API WindowResizedEvent :public Event
 	{
 	public:
-		WindowResizeEvent(unsigned int width, unsigned int height)
+		WindowResizedEvent(unsigned int width, unsigned int height)
 			:m_Width(width), m_Height(height) {}
 
 		inline unsigned int GetWidth() const { return m_Width; }
@@ -27,10 +27,10 @@ namespace MyHazel {
 		unsigned int m_Width, m_Height;
 	};
 
-	class HAZEL_API WindowCloseEvent :public Event
+	class HAZEL_API WindowClosedEvent :public Event
 	{
 	public:
-		WindowCloseEvent() {}
+		WindowClosedEvent() {}
 
 		EVENT_CLASS_TYPE(WindowClose)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
