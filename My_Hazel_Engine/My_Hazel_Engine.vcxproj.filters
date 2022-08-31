@@ -16,9 +16,6 @@
     <Filter Include="src\MyHazel\Platform">
       <UniqueIdentifier>{2A16BCFC-16A5-45C6-BFC3-59C1AB31566C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\MyHazel\Platform\OpenGL">
-      <UniqueIdentifier>{1EECB01E-8AF9-DE04-13E0-DAEF7FECAABB}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\MyHazel\Platform\Windows">
       <UniqueIdentifier>{644AEA4C-5005-DAF8-F9BC-5243E5562489}</UniqueIdentifier>
     </Filter>
@@ -89,9 +86,6 @@
     </ClInclude>
     <ClInclude Include="src\MyHazel\MouseButtonCodes.h">
       <Filter>src\MyHazel</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\Platform\OpenGL\ImGuiOpenGLRender.h">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\MyHazel\Platform\Windows\WindowsInput.h">
       <Filter>src\MyHazel\Platform\Windows</Filter>
@@ -1355,6 +1349,9 @@
     <ClCompile Include="src\MyHazel\Application.cpp">
       <Filter>src\MyHazel</Filter>
     </ClCompile>
+    <ClCompile Include="src\MyHazel\ImGui\ImGuiBuild.cpp">
+      <Filter>src\MyHazel\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\MyHazel\ImGui\ImGuiLayer.cpp">
       <Filter>src\MyHazel\ImGui</Filter>
     </ClCompile>
@@ -1366,9 +1363,6 @@
     </ClCompile>
     <ClCompile Include="src\MyHazel\Log.cpp">
       <Filter>src\MyHazel</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyHazel\Platform\OpenGL\ImGuiOpenGLRender.cpp">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\MyHazel\Platform\Windows\WindowsInput.cpp">
       <Filter>src\MyHazel\Platform\Windows</Filter>
