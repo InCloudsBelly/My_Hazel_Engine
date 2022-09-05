@@ -12,5 +12,16 @@
 
 #include "MyHazel/ImGui/ImGuiLayer.h"
 
-//---------EntryPoint-----------
+//--------- Renderer -----------
+#include "MyHazel/Renderer/Renderer.h"
+#include "MyHazel/Renderer/RenderCommand.h"
+
+#include "MyHazel/Renderer/Buffer.h"
+#include "MyHazel/Renderer/Shader.h"
+#include "MyHazel/Renderer/VertexArray.h"
+#include "MyHazel/Renderer/Texture.h"
+
+#include "MyHazel/Renderer/OrthographicCamera.h"
+
+//--------- EntryPoint -----------
 #include "MyHazel/EntryPoint.h"

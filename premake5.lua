@@ -15,6 +15,7 @@ IncludeDir["GLFW"] = "My_Hazel_Engine/vendor/GLFW/include"
 IncludeDir["GLAD"] = "My_Hazel_Engine/vendor/GLAD/include"
 IncludeDir["ImGui"] = "My_Hazel_Engine/vendor/imGui"
 IncludeDir["glm"] = "My_Hazel_Engine/vendor/glm"
+IncludeDir["stb_image"] = "My_Hazel_Engine/vendor/stb_image"
 
 include "My_Hazel_Engine/vendor/GLFW"
 include "My_Hazel_Engine/vendor/GLAD"
@@ -22,9 +23,10 @@ include "My_Hazel_Engine/vendor/imGui"
 
 project "My_Hazel_Engine"
     location "My_Hazel_Engine"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
-    staticruntime "off"
+    cppdialect "c++17"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -32,10 +34,17 @@ project "My_Hazel_Engine"
     pchheader "hzpch.h"
     pchsource "My_Hazel_Engine/src/hzpch.cpp"
 
+    defines
+    {
+        "_CRT_SECURE_NO_WARNINGS"
+    }
+
     files
     {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/stb_image/**.h",
+        "%{prj.name}/vendor/stb_image/**.cpp",
         "%{prj.name}/vendor/glm/glm/**.hpp",
         "%{prj.name}/vendor/glm/glm/**.inl",
     }
@@ -47,7 +56,9 @@ project "My_Hazel_Engine"
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.GLAD}",
         "%{IncludeDir.ImGui}",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.stb_image}",
+
     }
 
     links
@@ -59,37 +70,31 @@ project "My_Hazel_Engine"
     }
 
     filter "system:windows"--windows平台的配置
-        cppdialect "c++17"
         systemversion "latest"
 
         defines
         {
             "HZ_PLATFORM_WINDOWS",
             "HZ_BUILD_DLL",
-            "GLFW_INCLUDE_NONE"
-        }
-
-        postbuildcommands -- build后的自定义命令
-        {
-            ("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"") --拷贝引擎dll库到sanbox.exe的同一目录下去
+            "GLFW_INCLUDE_NONE",
         }
     
 
     filter "configurations:Debug"
         defines "HZ_DEBUG"
         runtime "Debug"
-        symbols "On"
+        symbols "on"
      
         
     filter "configurations:Release"
         defines "HZ_RELEASE"
         runtime "Release"
-        optimize "On"
+        optimize "on"
     
     filter "configurations:Dist"
         defines "HZ_DIST"
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
 
 
@@ -97,7 +102,7 @@ project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"
     language "c++"
-    staticruntime "off"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -113,6 +118,7 @@ project "Sandbox"
     {
         "My_Hazel_Engine/vendor/spdlog/include",
         "My_Hazel_Engine/src",
+        "My_Hazel_Engine/vendor",
         "%{IncludeDir.glm}"
     }
 
