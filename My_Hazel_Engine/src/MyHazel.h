@@ -2,6 +2,7 @@
 
 // 在 Hazel application 中应用
 
+#include "MyHazel/Core/Core.h"
 #include "MyHazel/Core/Application.h"
 #include "MyHazel/Core/Layer.h"
 #include "MyHazel/Core/Log.h"

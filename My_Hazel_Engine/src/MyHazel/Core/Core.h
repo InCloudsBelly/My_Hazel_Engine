@@ -42,20 +42,6 @@
 #error "Unknown platform!"
 #endif // End of platform detection
 
-#ifdef HZ_PLATFORM_WINDOWS
-	#ifdef HZ_DYNAMIC_LINK
-		#ifdef HZ_BUILD_DLL
-			#define HAZEL_API __declspec(dllexport)
-		#else
-			#define HAZEL_API __declspec(dllimport)
-			#define IMGUI_API __declspec(dllimport)
-		#endif
-	#else
-		#define HAZEL_API	
-	#endif
-#else
-	#error Hazel only supports Windows!
-#endif
 
 #ifdef HZ_ENABLE_ASSERTS
 	#define HZ_ASSERT(x, ...){if(!(x)) {HZ_ERROR("Assertion Failed: {0}",__VA_ARGS__);__debugbreak();}}

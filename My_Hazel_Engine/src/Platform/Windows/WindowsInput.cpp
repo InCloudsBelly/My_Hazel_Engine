@@ -1,6 +1,6 @@
 #include "hzpch.h"
-#include "WindowsInput.h"
-#include"MyHazel/Core/Application.h"
+#include "Platform/Windows/WindowsInput.h"
+#include "MyHazel/Core/Application.h"
 
 namespace MyHazel{
 	

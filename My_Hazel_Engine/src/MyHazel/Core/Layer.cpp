@@ -1,5 +1,5 @@
 #include "hzpch.h"
-#include "Layer.h"
+#include "MyHazel/Core/Layer.h"
 
 namespace MyHazel {
 	Layer::Layer(const std::string& debugName)

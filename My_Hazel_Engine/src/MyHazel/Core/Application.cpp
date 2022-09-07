@@ -1,15 +1,13 @@
 #include "hzpch.h"
-#include "Application.h"
 
+#include "MyHazel/Core/Application.h"
+#include "MyHazel/Core/Input.h"
 #include"MyHazel/Core/Log.h"
 
 #include "MyHazel/Renderer/Renderer.h"
 
-#include "Input.h"
-
 #include <glfw/glfw3.h>
 
-#define BIND_EVENT_FN(x) std::bind(&Application::x, this,std::placeholders::_1)
 
 namespace MyHazel{ 
 	
@@ -20,8 +18,9 @@ namespace MyHazel{
 	{
 		HZ_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
-		m_Window =std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+		m_Window = Window::Create();
+		m_Window->SetEventCallback(HZ_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
 
@@ -31,7 +30,7 @@ namespace MyHazel{
 
 	Application::~Application() 
 	{
-		
+		Renderer::Shutdown();
 	}
 
 	void Application::PushLayer(Layer* layer)
@@ -49,8 +48,8 @@ namespace MyHazel{
 	void Application::OnEvent(Event& e) 
 	{
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowClosedEvent>(BIND_EVENT_FN(OnWindiwClosed));
-		dispatcher.Dispatch<WindowResizedEvent>(BIND_EVENT_FN(OnWindiwResized));
+		dispatcher.Dispatch<WindowClosedEvent>(HZ_BIND_EVENT_FN(Application::OnWindiwClosed));
+		dispatcher.Dispatch<WindowResizedEvent>(HZ_BIND_EVENT_FN(Application::OnWindiwResized));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{

@@ -19,7 +19,7 @@ namespace MyHazel {
 			:Title(title), Width(width), Height(height) {}
 	};
 
-	class HAZEL_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
@@ -38,6 +38,6 @@ namespace MyHazel {
 
 		virtual void* GetNativeWindow() const = 0;
 
-		static Window* Create(const WindowProps& props = WindowProps());
+		static Scope<Window> Create(const WindowProps& props = WindowProps());
 	};
 }

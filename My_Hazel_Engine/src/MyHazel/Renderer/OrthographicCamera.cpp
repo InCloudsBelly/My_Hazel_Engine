@@ -1,6 +1,6 @@
 #include "hzpch.h"
-#include "OrthographicCamera.h"
 
+#include "MyHazel/Renderer/OrthographicCamera.h"
 
 namespace MyHazel {
 	OrthographicCamera::OrthographicCamera(float left, float right, float bottom, float top)

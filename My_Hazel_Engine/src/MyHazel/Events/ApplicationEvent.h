@@ -1,10 +1,10 @@
 #pragma once
-#include "Event.h"
+#include "MyHazel/Events/Event.h"
 
 
 namespace MyHazel {
 
-	class HAZEL_API WindowResizedEvent :public Event
+	class  WindowResizedEvent :public Event
 	{
 	public:
 		WindowResizedEvent(unsigned int width, unsigned int height)
@@ -27,38 +27,38 @@ namespace MyHazel {
 		unsigned int m_Width, m_Height;
 	};
 
-	class HAZEL_API WindowClosedEvent :public Event
+	class WindowClosedEvent :public Event
 	{
 	public:
-		WindowClosedEvent() {}
+		WindowClosedEvent() = default;
 
 		EVENT_CLASS_TYPE(WindowClose)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class HAZEL_API AppTickEvent :public Event
+	class AppTickEvent :public Event
 	{
 	public:
-		AppTickEvent() {}
+		AppTickEvent() = default;
 
 		EVENT_CLASS_TYPE(AppTick)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 	
 
-	class HAZEL_API AppUpdateEvent :public Event
+	class AppUpdateEvent :public Event
 	{
 	public:
-		AppUpdateEvent() {}
+		AppUpdateEvent() = default;
 
 		EVENT_CLASS_TYPE(AppUpdate)
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class HAZEL_API AppRenderEvent :public Event
+	class AppRenderEvent :public Event
 	{
 	public:
-		AppRenderEvent() {}
+		AppRenderEvent() = default;
 
 		EVENT_CLASS_TYPE(AppRender)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)

@@ -1,5 +1,5 @@
 #include "hzpch.h"
-#include "OrthographicCameraController.h"
+#include "MyHazel/Renderer/OrthographicCameraController.h"
 
 #include "MyHazel/Core/Input.h"
 #include "MyHazel/Core/KeyCodes.h"

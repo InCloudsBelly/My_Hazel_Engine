@@ -1,5 +1,5 @@
 #pragma once
-#include "Core.h"
+#include "MyHazel/Core/Core.h"
 #include "Window.h"
 #include "LayerStack.h"
 
@@ -17,7 +17,7 @@
 
 namespace MyHazel {
 
-	class HAZEL_API Application
+	class Application
 	{
 	public:
 		Application();

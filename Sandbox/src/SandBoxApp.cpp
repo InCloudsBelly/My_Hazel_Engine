@@ -1,9 +1,7 @@
 #include <MyHazel.h>
 #include "MyHazel/Core/EntryPoint.h"
 
-#include "Platform/OpenGL/OpenGLShader.h"
-#include "imgui/imgui.h"
-
+#include <imgui/imgui.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
@@ -23,9 +21,7 @@ public:
 			 0.0f,  0.5f, 0.0f,1.0f,1.0f,0.0f,1.0f
 		};
 
-		MyHazel::Ref<MyHazel::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(MyHazel::VertexBuffer::Create(vertices, sizeof(vertices)));
-
+		MyHazel::Ref<MyHazel::VertexBuffer> vertexBuffer = MyHazel::VertexBuffer::Create(vertices, sizeof(vertices));
 		MyHazel::BufferLayout layout = {
 			{MyHazel::ShaderDataType::Float3, "a_Position"},
 			{MyHazel::ShaderDataType::Float4, "a_Color"}
@@ -33,9 +29,8 @@ public:
 		vertexBuffer->SetLayout(layout);
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
-		MyHazel::Ref<MyHazel::IndexBuffer> indexBuffer;
 		uint32_t indices[3] = { 0,1,2 };
-		indexBuffer.reset(MyHazel::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		MyHazel::Ref<MyHazel::IndexBuffer> indexBuffer = (MyHazel::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 
@@ -50,8 +45,7 @@ public:
 			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		MyHazel::Ref<MyHazel::VertexBuffer> squareVB;
-		squareVB.reset(MyHazel::VertexBuffer::Create(Squarevertices, sizeof(Squarevertices)));
+		MyHazel::Ref<MyHazel::VertexBuffer> squareVB = (MyHazel::VertexBuffer::Create(Squarevertices, sizeof(Squarevertices)));
 
 		MyHazel::BufferLayout Squarelayout = {
 			{MyHazel::ShaderDataType::Float3, "a_Position"},
@@ -61,8 +55,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t Squareindices[6] = { 0,1,2, 2,3,0 };
-		MyHazel::Ref<MyHazel::IndexBuffer> squareIB;
-		squareIB.reset(MyHazel::IndexBuffer::Create(Squareindices, sizeof(Squareindices) / sizeof(uint32_t)));
+		MyHazel::Ref<MyHazel::IndexBuffer> squareIB = (MyHazel::IndexBuffer::Create(Squareindices, sizeof(Squareindices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 
@@ -138,8 +131,8 @@ public:
 		auto TextureShader = m_ShaderLibrary.load ("assets/shaders/Texture.glsl");
 	
 		m_Texture = (MyHazel::Texture2D::Create("assets/textures/awesomeface.png"));
-		std::dynamic_pointer_cast<MyHazel::OpenGLShader>(TextureShader)->Bind();
-		std::dynamic_pointer_cast<MyHazel::OpenGLShader>(TextureShader)->UploadUniformInt("u_Texture", 0);
+		TextureShader->Bind();
+		TextureShader->SetInt("u_Texture", 0);
 
 }
 
@@ -160,8 +153,8 @@ public:
 		{
 			glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-			std::dynamic_pointer_cast<MyHazel::OpenGLShader>(m_SquareShader)->Bind();
-			std::dynamic_pointer_cast<MyHazel::OpenGLShader>(m_SquareShader)->UploadUniformFloat3("u_Color", m_Color);
+			m_SquareShader->Bind();
+			m_SquareShader->SetFloat3("u_Color", m_Color);
 
 			for (int y = 0; y < 20; y++)
 			{

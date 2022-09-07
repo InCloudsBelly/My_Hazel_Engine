@@ -602,6 +602,7 @@
     <ClCompile Include="src\MyHazel\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\MyHazel\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\MyHazel\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\MyHazel\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\MyHazel\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\MyHazel\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\MyHazel\Renderer\RenderCommand.cpp" />

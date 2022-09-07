@@ -1,7 +1,7 @@
-#include "Sandbox2D.h"
-#include "Sandbox2D.h"
-#include "imgui/imgui.h"
 
+#include "Sandbox2D.h"
+
+#include <imgui/imgui.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
@@ -14,6 +14,7 @@ Sandbox2D::Sandbox2D()
 
 void Sandbox2D::OnAttach()
 {
+	m_Texture = MyHazel::Texture2D::Create("assets/textures/brickwall.jpg");
 
 }
 
@@ -31,7 +32,9 @@ void Sandbox2D::OnUpdate(MyHazel::Timestep ts)
 	MyHazel::RenderCommand::Clear();
 
 	MyHazel::Renderer2D::BeginScene(m_CameraController.GetCamera());
-	MyHazel::Renderer2D::DrawQuad({ 0.0f, 0.0f }, { 1.0f, 1.0f }, { 0.8f, 0.2f, 0.3f, 1.0f });
+	MyHazel::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, { 0.8f, 0.2f, 0.3f, 1.0f });
+	MyHazel::Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.75f }, { 0.2f, 0.3f, 0.8f, 1.0f });
+	MyHazel::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, m_Texture);
 	MyHazel::Renderer2D::EndScene();
 
 	// TODO: Add these functions - Shader::SetMat4, Shader::SetFloat4

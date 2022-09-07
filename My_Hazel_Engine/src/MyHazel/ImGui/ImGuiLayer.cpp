@@ -1,10 +1,9 @@
 #include "hzpch.h"
-#include "ImGuiLayer.h"
+#include "MyHazel/ImGui/ImGuiLayer.h"
 
-#include "imgui.h"
-
-#include "examples/imgui_impl_glfw.h"
-#include "examples/imgui_impl_opengl3.h"
+#include <imgui.h>
+#include <examples/imgui_impl_glfw.h>
+#include <examples/imgui_impl_opengl3.h>
 
 #include "MyHazel/Core/Application.h"
 

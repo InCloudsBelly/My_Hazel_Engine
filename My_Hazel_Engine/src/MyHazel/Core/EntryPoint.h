@@ -1,4 +1,6 @@
 #pragma once
+#include "MyHazel/Core/Core.h"
+
 #ifdef HZ_PLATFORM_WINDOWS
 
 extern MyHazel::Application* MyHazel::CreateApplication();
