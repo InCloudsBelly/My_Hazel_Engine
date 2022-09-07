@@ -22,5 +22,13 @@ private:
 	MyHazel::Ref<MyHazel::Shader> m_FlatColorShader;
 	MyHazel::Ref<MyHazel::Texture2D> m_Texture;
 
+	struct ProfileResult
+	{
+		const char* Name;
+		float Time;
+	};
+
+	std::vector<ProfileResult> m_ProfileResults;
+
 	glm::vec4 m_SquareColor = { 0.2,0.3,0.8,1.0f };
 };
