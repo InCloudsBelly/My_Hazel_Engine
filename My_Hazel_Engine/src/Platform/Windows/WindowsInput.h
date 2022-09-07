@@ -1,6 +1,6 @@
 #pragma once
 
-#include "MyHazel/Input.h"
+#include "MyHazel/Core/Input.h"
 
 #include <GLFW/glfw3.h>
 namespace MyHazel {

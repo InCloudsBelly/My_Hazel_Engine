@@ -2,7 +2,7 @@
 
 #include "Buffer.h"
 #include "Renderer.h"
-#include "MyHazel/Platform/OpenGL/OpenGLBuffer.h"
+#include "Platform/OpenGL/OpenGLBuffer.h"
 
 namespace MyHazel {
 	VertexBuffer* VertexBuffer::Create(float* vertices, uint32_t size) 

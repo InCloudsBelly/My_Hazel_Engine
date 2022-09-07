@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "MyHazel/Core.h"
+#include "MyHazel/Core/Core.h"
 
 namespace MyHazel {
 

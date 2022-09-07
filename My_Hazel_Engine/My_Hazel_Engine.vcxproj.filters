@@ -16,17 +16,17 @@
     <Filter Include="src\MyHazel\ImGui">
       <UniqueIdentifier>{C0AEC296-2CC5-C02C-753C-4C4EE19191B4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\MyHazel\Platform">
-      <UniqueIdentifier>{2A16BCFC-16A5-45C6-BFC3-59C1AB31566C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\MyHazel\Platform\OpenGL">
-      <UniqueIdentifier>{1EECB01E-8AF9-DE04-13E0-DAEF7FECAABB}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\MyHazel\Platform\Windows">
-      <UniqueIdentifier>{644AEA4C-5005-DAF8-F9BC-5243E5562489}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\MyHazel\Renderer">
       <UniqueIdentifier>{7C1D99D7-68AC-22A1-11CB-369CFD383347}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform">
+      <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\OpenGL">
+      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\Windows">
+      <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
     </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
@@ -57,17 +57,38 @@
     <ClInclude Include="src\MyHazel.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\MyHazel\Application.h">
-      <Filter>src\MyHazel</Filter>
+    <ClInclude Include="src\MyHazel\Core\Application.h">
+      <Filter>src\MyHazel\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\MyHazel\Core.h">
-      <Filter>src\MyHazel</Filter>
+    <ClInclude Include="src\MyHazel\Core\Core.h">
+      <Filter>src\MyHazel\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyHazel\Core\EntryPoint.h">
+      <Filter>src\MyHazel\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyHazel\Core\Input.h">
+      <Filter>src\MyHazel\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyHazel\Core\KeyCodes.h">
+      <Filter>src\MyHazel\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyHazel\Core\Layer.h">
+      <Filter>src\MyHazel\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyHazel\Core\LayerStack.h">
+      <Filter>src\MyHazel\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyHazel\Core\Log.h">
+      <Filter>src\MyHazel\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyHazel\Core\MouseButtonCodes.h">
+      <Filter>src\MyHazel\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\MyHazel\Core\Timestep.h">
       <Filter>src\MyHazel\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\MyHazel\EntryPoint.h">
-      <Filter>src\MyHazel</Filter>
+    <ClInclude Include="src\MyHazel\Core\Window.h">
+      <Filter>src\MyHazel\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\MyHazel\Events\ApplicationEvent.h">
       <Filter>src\MyHazel\Events</Filter>
@@ -84,48 +105,6 @@
     <ClInclude Include="src\MyHazel\ImGui\ImGuiLayer.h">
       <Filter>src\MyHazel\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\MyHazel\Input.h">
-      <Filter>src\MyHazel</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\KeyCodes.h">
-      <Filter>src\MyHazel</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\Layer.h">
-      <Filter>src\MyHazel</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\LayerStack.h">
-      <Filter>src\MyHazel</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\Log.h">
-      <Filter>src\MyHazel</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\MouseButtonCodes.h">
-      <Filter>src\MyHazel</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\Platform\OpenGL\OpenGLBuffer.h">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\Platform\OpenGL\OpenGLContext.h">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\Platform\OpenGL\OpenGLRendererAPI.h">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\Platform\OpenGL\OpenGLShader.h">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\Platform\OpenGL\OpenGLTexture.h">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\Platform\OpenGL\OpenGLVertexArray.h">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\Platform\Windows\WindowsInput.h">
-      <Filter>src\MyHazel\Platform\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="src\MyHazel\Platform\Windows\WindowsWindow.h">
-      <Filter>src\MyHazel\Platform\Windows</Filter>
-    </ClInclude>
     <ClInclude Include="src\MyHazel\Renderer\Buffer.h">
       <Filter>src\MyHazel\Renderer</Filter>
     </ClInclude>
@@ -133,6 +112,9 @@
       <Filter>src\MyHazel\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\MyHazel\Renderer\OrthographicCamera.h">
+      <Filter>src\MyHazel\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyHazel\Renderer\OrthographicCameraController.h">
       <Filter>src\MyHazel\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\MyHazel\Renderer\RenderCommand.h">
@@ -153,8 +135,29 @@
     <ClInclude Include="src\MyHazel\Renderer\VertexArray.h">
       <Filter>src\MyHazel\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\MyHazel\Window.h">
-      <Filter>src\MyHazel</Filter>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>src\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>src\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\hzpch.h">
       <Filter>src</Filter>
@@ -1407,10 +1410,20 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="src\MyHazel\Renderer\Renderer2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\MyHazel\Application.cpp">
-      <Filter>src\MyHazel</Filter>
+    <ClCompile Include="src\MyHazel\Core\Application.cpp">
+      <Filter>src\MyHazel\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MyHazel\Core\Layer.cpp">
+      <Filter>src\MyHazel\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MyHazel\Core\LayerStack.cpp">
+      <Filter>src\MyHazel\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MyHazel\Core\Log.cpp">
+      <Filter>src\MyHazel\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\MyHazel\ImGui\ImGuiBuild.cpp">
       <Filter>src\MyHazel\ImGui</Filter>
@@ -1418,43 +1431,13 @@
     <ClCompile Include="src\MyHazel\ImGui\ImGuiLayer.cpp">
       <Filter>src\MyHazel\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\MyHazel\Layer.cpp">
-      <Filter>src\MyHazel</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyHazel\LayerStack.cpp">
-      <Filter>src\MyHazel</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyHazel\Log.cpp">
-      <Filter>src\MyHazel</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyHazel\Platform\OpenGL\OpenGLBuffer.cpp">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyHazel\Platform\OpenGL\OpenGLContext.cpp">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyHazel\Platform\OpenGL\OpenGLRendererAPI.cpp">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyHazel\Platform\OpenGL\OpenGLShader.cpp">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyHazel\Platform\OpenGL\OpenGLTexture.cpp">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyHazel\Platform\OpenGL\OpenGLVertexArray.cpp">
-      <Filter>src\MyHazel\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyHazel\Platform\Windows\WindowsInput.cpp">
-      <Filter>src\MyHazel\Platform\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyHazel\Platform\Windows\WindowsWindow.cpp">
-      <Filter>src\MyHazel\Platform\Windows</Filter>
-    </ClCompile>
     <ClCompile Include="src\MyHazel\Renderer\Buffer.cpp">
       <Filter>src\MyHazel\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\MyHazel\Renderer\OrthographicCamera.cpp">
+      <Filter>src\MyHazel\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MyHazel\Renderer\OrthographicCameraController.cpp">
       <Filter>src\MyHazel\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\MyHazel\Renderer\RenderCommand.cpp">
@@ -1475,11 +1458,36 @@
     <ClCompile Include="src\MyHazel\Renderer\VertexArray.cpp">
       <Filter>src\MyHazel\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>src\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>src\Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\hzpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="src\MyHazel\Renderer\Renderer2D.cpp" />
   </ItemGroup>
 </Project>

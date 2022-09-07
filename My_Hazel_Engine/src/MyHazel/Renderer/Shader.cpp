@@ -2,7 +2,7 @@
 #include "Shader.h"
 #include "Renderer.h"
 
-#include "MyHazel/Platform/OpenGL/OpenGLShader.h"
+#include "Platform/OpenGL/OpenGLShader.h"
 
 namespace MyHazel {
 	Ref<Shader> Shader::Create(const std::string& filepath)

@@ -1,19 +1,21 @@
 #include <MyHazel.h>
+#include "MyHazel/Core/EntryPoint.h"
 
-#include "MyHazel/Platform/OpenGL/OpenGLShader.h"
+#include "Platform/OpenGL/OpenGLShader.h"
 #include "imgui/imgui.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Sandbox2D.h"
 
 class ExampleLayer :public MyHazel::Layer
 {
 public:
 	ExampleLayer()
-		:Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f),m_CameraPosition(0.0f)
+		:Layer("Example"), m_CameraController(1280.0f/720.0f)
 	{
-		m_VertexArray.reset(MyHazel::VertexArray::Create());
+		m_VertexArray = (MyHazel::VertexArray::Create());
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f,1.0f,0.0f,1.0f,1.0f,
@@ -39,7 +41,7 @@ public:
 
 		/***  SquareVA  ***/
 
-		m_SquareVA.reset(MyHazel::VertexArray::Create());
+		m_SquareVA= (MyHazel::VertexArray::Create());
 
 		float Squarevertices[4 * 5] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -145,39 +147,16 @@ public:
 
 	void OnUpdate(MyHazel::Timestep ts)override
 	{
-		if(MyHazel::Input::IsKeyPressed(HZ_KEY_A))
-			m_CameraPosition.x -= m_CameraSpeed * ts;
-		else if (MyHazel::Input::IsKeyPressed(HZ_KEY_D))
-			m_CameraPosition.x += m_CameraSpeed * ts;
-		if (MyHazel::Input::IsKeyPressed(HZ_KEY_W))
-			m_CameraPosition.y += m_CameraSpeed * ts;
-		else if (MyHazel::Input::IsKeyPressed(HZ_KEY_S))
-			m_CameraPosition.y -= m_CameraSpeed * ts;
+		//Update
+		m_CameraController.OnUpdate(ts);
 
-		if (MyHazel::Input::IsKeyPressed(HZ_KEY_Q))
-			m_CameraRotation += m_CameraRotationSpeed * ts;
-		else if (MyHazel::Input::IsKeyPressed(HZ_KEY_E))
-			m_CameraRotation -= m_CameraRotationSpeed * ts;
 
-		if (MyHazel::Input::IsKeyPressed(HZ_KEY_J))
-			SquarePosition.x -= SquareMoveSpeed * ts;
-		else if (MyHazel::Input::IsKeyPressed(HZ_KEY_L))
-			SquarePosition.x += SquareMoveSpeed * ts;
-
-		if (MyHazel::Input::IsKeyPressed(HZ_KEY_I))
-			SquarePosition.y += SquareMoveSpeed * ts;
-		else if (MyHazel::Input::IsKeyPressed(HZ_KEY_K))
-			SquarePosition.y -= SquareMoveSpeed * ts;
-
+		//Render
 		MyHazel::RenderCommand::SetClearColor({ 0.1f,0.1f,0.1f,1.0f });
 		MyHazel::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
 
-		glm::mat4 transform = glm::translate(glm::mat4(1.0f), SquarePosition);
-
-		MyHazel::Renderer::BeginScene(m_Camera);
+		MyHazel::Renderer::BeginScene(m_CameraController.GetCamera());
 		{
 			glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -211,11 +190,9 @@ public:
 
 	}
 
-	void OnEvent(MyHazel::Event& event) override
+	void OnEvent(MyHazel::Event& e) override
 	{
-		/*MyHazel::EventDispatcher dispatcher(event);
-		dispatcher.Dispatch<MyHazel::KeyPressedEvent>(HZ_BIND_EVENT_FN(ExampleLayer::OnKeyPressedEvent));*/
-
+		m_CameraController.OnEvent(e);
 	}
 
 
@@ -230,16 +207,7 @@ private:
 
 	MyHazel::Ref<MyHazel::Texture2D> m_Texture;
 
-	MyHazel::OrthographicCamera m_Camera;
-	glm::vec3 m_CameraPosition;
-	float m_CameraSpeed = 5.0;
-
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 180.0f;
-
-	glm::vec3 SquarePosition = {0.0f, 0.0f, 0.0f};
-	float SquareMoveSpeed = 5.0f;
-
+	MyHazel::OrthographicCameraController m_CameraController;
 	glm::vec3 m_Color = { 0.2,0.3,0.8 };
 
 };
@@ -247,7 +215,7 @@ private:
 class Sandbox : public MyHazel::Application {
 public:
 	Sandbox() {
-		PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 
 	}
 

@@ -2,7 +2,8 @@
 #include "Core.h"
 #include "Window.h"
 #include "LayerStack.h"
-#include "Events/Event.h"
+
+#include "MyHazel/Events/Event.h"
 #include "MyHazel/Events/ApplicationEvent.h"
 #include "MyHazel/Core/Timestep.h"
 
@@ -33,10 +34,11 @@ namespace MyHazel {
 		inline Window& GetWindow() { return *m_Window; }
 	private:
 		bool OnWindiwClosed(WindowClosedEvent & e);
+		bool OnWindiwResized(WindowResizedEvent& e);
 
 		ImGuiLayer* m_ImGuiLayer;
 		std::unique_ptr<Window> m_Window;
-		bool m_Running = true;
+		bool m_Running = true, m_Minimized = false;
 		LayerStack m_LayerStack;
 
 		Timestep m_Timestep;

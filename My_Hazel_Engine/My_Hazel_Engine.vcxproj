@@ -26,19 +26,19 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -141,39 +141,41 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\MyHazel.h" />
-    <ClInclude Include="src\MyHazel\Application.h" />
-    <ClInclude Include="src\MyHazel\Core.h" />
+    <ClInclude Include="src\MyHazel\Core\Application.h" />
+    <ClInclude Include="src\MyHazel\Core\Core.h" />
+    <ClInclude Include="src\MyHazel\Core\EntryPoint.h" />
+    <ClInclude Include="src\MyHazel\Core\Input.h" />
+    <ClInclude Include="src\MyHazel\Core\KeyCodes.h" />
+    <ClInclude Include="src\MyHazel\Core\Layer.h" />
+    <ClInclude Include="src\MyHazel\Core\LayerStack.h" />
+    <ClInclude Include="src\MyHazel\Core\Log.h" />
+    <ClInclude Include="src\MyHazel\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\MyHazel\Core\Timestep.h" />
-    <ClInclude Include="src\MyHazel\EntryPoint.h" />
+    <ClInclude Include="src\MyHazel\Core\Window.h" />
     <ClInclude Include="src\MyHazel\Events\ApplicationEvent.h" />
     <ClInclude Include="src\MyHazel\Events\Event.h" />
     <ClInclude Include="src\MyHazel\Events\KeyEvent.h" />
     <ClInclude Include="src\MyHazel\Events\MouseEvent.h" />
     <ClInclude Include="src\MyHazel\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\MyHazel\Input.h" />
-    <ClInclude Include="src\MyHazel\KeyCodes.h" />
-    <ClInclude Include="src\MyHazel\Layer.h" />
-    <ClInclude Include="src\MyHazel\LayerStack.h" />
-    <ClInclude Include="src\MyHazel\Log.h" />
-    <ClInclude Include="src\MyHazel\MouseButtonCodes.h" />
-    <ClInclude Include="src\MyHazel\Platform\OpenGL\OpenGLBuffer.h" />
-    <ClInclude Include="src\MyHazel\Platform\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\MyHazel\Platform\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\MyHazel\Platform\OpenGL\OpenGLShader.h" />
-    <ClInclude Include="src\MyHazel\Platform\OpenGL\OpenGLTexture.h" />
-    <ClInclude Include="src\MyHazel\Platform\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\MyHazel\Platform\Windows\WindowsInput.h" />
-    <ClInclude Include="src\MyHazel\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\MyHazel\Renderer\Buffer.h" />
     <ClInclude Include="src\MyHazel\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\MyHazel\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\MyHazel\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\MyHazel\Renderer\RenderCommand.h" />
     <ClInclude Include="src\MyHazel\Renderer\Renderer.h" />
+    <ClInclude Include="src\MyHazel\Renderer\Renderer2D.h" />
     <ClInclude Include="src\MyHazel\Renderer\RendererAPI.h" />
     <ClInclude Include="src\MyHazel\Renderer\Shader.h" />
     <ClInclude Include="src\MyHazel\Renderer\Texture.h" />
     <ClInclude Include="src\MyHazel\Renderer\VertexArray.h" />
-    <ClInclude Include="src\MyHazel\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\hzpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
@@ -593,28 +595,30 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\MyHazel\Application.cpp" />
+    <ClCompile Include="src\MyHazel\Core\Application.cpp" />
+    <ClCompile Include="src\MyHazel\Core\Layer.cpp" />
+    <ClCompile Include="src\MyHazel\Core\LayerStack.cpp" />
+    <ClCompile Include="src\MyHazel\Core\Log.cpp" />
     <ClCompile Include="src\MyHazel\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\MyHazel\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\MyHazel\Layer.cpp" />
-    <ClCompile Include="src\MyHazel\LayerStack.cpp" />
-    <ClCompile Include="src\MyHazel\Log.cpp" />
-    <ClCompile Include="src\MyHazel\Platform\OpenGL\OpenGLBuffer.cpp" />
-    <ClCompile Include="src\MyHazel\Platform\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\MyHazel\Platform\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="src\MyHazel\Platform\OpenGL\OpenGLShader.cpp" />
-    <ClCompile Include="src\MyHazel\Platform\OpenGL\OpenGLTexture.cpp" />
-    <ClCompile Include="src\MyHazel\Platform\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="src\MyHazel\Platform\Windows\WindowsInput.cpp" />
-    <ClCompile Include="src\MyHazel\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\MyHazel\Renderer\Buffer.cpp" />
     <ClCompile Include="src\MyHazel\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\MyHazel\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\MyHazel\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\MyHazel\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\MyHazel\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\MyHazel\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\MyHazel\Renderer\Shader.cpp" />
     <ClCompile Include="src\MyHazel\Renderer\Texture.cpp" />
     <ClCompile Include="src\MyHazel\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\hzpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

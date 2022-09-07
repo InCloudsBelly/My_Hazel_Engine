@@ -1,7 +1,7 @@
 #include "hzpch.h"
 #include "Application.h"
 
-#include"MyHazel/Log.h"
+#include"MyHazel/Core/Log.h"
 
 #include "MyHazel/Renderer/Renderer.h"
 
@@ -50,6 +50,7 @@ namespace MyHazel{
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowClosedEvent>(BIND_EVENT_FN(OnWindiwClosed));
+		dispatcher.Dispatch<WindowResizedEvent>(BIND_EVENT_FN(OnWindiwResized));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{
@@ -59,12 +60,6 @@ namespace MyHazel{
 		}
 	}
 
-	bool Application::OnWindiwClosed(WindowClosedEvent& e)
-	{
-		m_Running = false;
-		return true;
-	}
-
 	void Application::Run() 
 	{
 		while (m_Running)
@@ -72,20 +67,39 @@ namespace MyHazel{
 			float time = (float)glfwGetTime();  //Platform::GetTime;
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
-
-			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate(timestep);
-
+			if (!m_Minimized) {
+				for (Layer* layer : m_LayerStack)
+					layer->OnUpdate(timestep);
+			}
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
 				layer->OnImGuiRender();
 			m_ImGuiLayer->End();
-
 			/*auto [x, y] = Input::GetMousePosition();
 			HZ_CORE_TRACE("{0}, {1}", x, y);*/
 
 			m_Window->OnUpdate();
 		}
 	}
+
+	bool Application::OnWindiwClosed(WindowClosedEvent& e)
+	{
+		m_Running = false;
+		return true;
+	}
+
+	bool Application::OnWindiwResized(WindowResizedEvent& e)
+	{
+		if (e.GetWidth() == 0 || e.GetHeight() == 0)
+		{
+			m_Minimized = true;
+			return false;
+		}
+		m_Minimized = false;
+
+		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
+		return false;
+	}
+
 
 }
