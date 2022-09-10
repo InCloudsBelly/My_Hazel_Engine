@@ -14,6 +14,7 @@
 #include "MyHazel/Renderer/Buffer.h"
 #include "MyHazel/Renderer/OrthographicCamera.h"
 
+int main(int argc, char** argv);
 
 namespace MyHazel {
 
@@ -23,8 +24,6 @@ namespace MyHazel {
 		Application();
 		virtual ~Application();
 
-		void Run();
-
 		void OnEvent(Event& e);
 		
 		void PushLayer(Layer* layer);
@@ -33,6 +32,7 @@ namespace MyHazel {
 		inline static Application& Get() { return *s_Instance; }
 		inline Window& GetWindow() { return *m_Window; }
 	private:
+		void Run();
 		bool OnWindiwClosed(WindowClosedEvent & e);
 		bool OnWindiwResized(WindowResizedEvent& e);
 
@@ -45,6 +45,8 @@ namespace MyHazel {
 		float m_LastFrameTime;
 	private:
 		static Application* s_Instance;
+
+		friend int ::main(int argc, char** argv);
 	};
 
 	//To be defined in client

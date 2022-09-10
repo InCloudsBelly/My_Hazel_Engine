@@ -149,9 +149,10 @@
     <ClInclude Include="src\MyHazel\Core\Layer.h" />
     <ClInclude Include="src\MyHazel\Core\LayerStack.h" />
     <ClInclude Include="src\MyHazel\Core\Log.h" />
-    <ClInclude Include="src\MyHazel\Core\MouseButtonCodes.h" />
+    <ClInclude Include="src\MyHazel\Core\MouseCodes.h" />
     <ClInclude Include="src\MyHazel\Core\Timestep.h" />
     <ClInclude Include="src\MyHazel\Core\Window.h" />
+    <ClInclude Include="src\MyHazel\Debug\Instrumentor.h" />
     <ClInclude Include="src\MyHazel\Events\ApplicationEvent.h" />
     <ClInclude Include="src\MyHazel\Events\Event.h" />
     <ClInclude Include="src\MyHazel\Events\KeyEvent.h" />
@@ -596,9 +597,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MyHazel\Core\Application.cpp" />
+    <ClCompile Include="src\MyHazel\Core\Input.cpp" />
     <ClCompile Include="src\MyHazel\Core\Layer.cpp" />
     <ClCompile Include="src\MyHazel\Core\LayerStack.cpp" />
     <ClCompile Include="src\MyHazel\Core\Log.cpp" />
+    <ClCompile Include="src\MyHazel\Core\Window.cpp" />
     <ClCompile Include="src\MyHazel\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\MyHazel\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\MyHazel\Renderer\Buffer.cpp" />

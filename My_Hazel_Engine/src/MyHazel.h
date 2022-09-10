@@ -9,7 +9,7 @@
 
 #include "MyHazel/Core/Input.h"
 #include "MyHazel/Core/KeyCodes.h"
-#include "MyHazel/Core/MouseButtonCodes.h"
+#include "MyHazel/Core/MouseCodes.h"
 
 #include "MyHazel/ImGui/ImGuiLayer.h"
 

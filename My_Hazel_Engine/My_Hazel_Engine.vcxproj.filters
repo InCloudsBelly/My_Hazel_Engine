@@ -10,6 +10,9 @@
     <Filter Include="src\MyHazel\Core">
       <UniqueIdentifier>{2E836769-1A7C-86BB-43AE-6B402F0666C7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\MyHazel\Debug">
+      <UniqueIdentifier>{0C446496-785A-622C-C1D1-ED4D2D2733B4}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\MyHazel\Events">
       <UniqueIdentifier>{3A187766-26FC-37BC-8F5C-320F7B5F223E}</UniqueIdentifier>
     </Filter>
@@ -81,7 +84,7 @@
     <ClInclude Include="src\MyHazel\Core\Log.h">
       <Filter>src\MyHazel\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\MyHazel\Core\MouseButtonCodes.h">
+    <ClInclude Include="src\MyHazel\Core\MouseCodes.h">
       <Filter>src\MyHazel\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\MyHazel\Core\Timestep.h">
@@ -89,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="src\MyHazel\Core\Window.h">
       <Filter>src\MyHazel\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyHazel\Debug\Instrumentor.h">
+      <Filter>src\MyHazel\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\MyHazel\Events\ApplicationEvent.h">
       <Filter>src\MyHazel\Events</Filter>
@@ -121,6 +127,9 @@
       <Filter>src\MyHazel\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\MyHazel\Renderer\Renderer.h">
+      <Filter>src\MyHazel\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyHazel\Renderer\Renderer2D.h">
       <Filter>src\MyHazel\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\MyHazel\Renderer\RendererAPI.h">
@@ -1410,7 +1419,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\MyHazel\Renderer\Renderer2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MyHazel\Core\Application.cpp">
@@ -1434,6 +1442,9 @@
     <ClCompile Include="src\MyHazel\Renderer\Buffer.cpp">
       <Filter>src\MyHazel\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\MyHazel\Renderer\GraphicsContext.cpp">
+      <Filter>src\MyHazel\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\MyHazel\Renderer\OrthographicCamera.cpp">
       <Filter>src\MyHazel\Renderer</Filter>
     </ClCompile>
@@ -1444,6 +1455,9 @@
       <Filter>src\MyHazel\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\MyHazel\Renderer\Renderer.cpp">
+      <Filter>src\MyHazel\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MyHazel\Renderer\Renderer2D.cpp">
       <Filter>src\MyHazel\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\MyHazel\Renderer\RendererAPI.cpp">
@@ -1488,7 +1502,7 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\MyHazel\Renderer\Renderer2D.cpp" />
-    <ClCompile Include="src\MyHazel\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\MyHazel\Core\Input.cpp" />
+    <ClCompile Include="src\MyHazel\Core\Window.cpp" />
   </ItemGroup>
 </Project>

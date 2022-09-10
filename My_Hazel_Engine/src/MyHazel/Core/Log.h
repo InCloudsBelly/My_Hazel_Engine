@@ -29,6 +29,7 @@ namespace MyHazel {
 #define HZ_CORE_WARN(...)		::MyHazel::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define HZ_CORE_INFO(...)		::MyHazel::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define HZ_CORE_FATAL(...)		::MyHazel::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define HZ_CORE_CRITICAL(...)	::MyHazel::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 //Clinent log macros
 
@@ -37,3 +38,4 @@ namespace MyHazel {
 #define HZ_WARN(...)		::MyHazel::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define HZ_INFO(...)		::MyHazel::Log::GetClientLogger()->info(__VA_ARGS__)
 #define HZ_FATAL(...)		::MyHazel::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define HZ_CRITICAL(...)    ::MyHazel::Log::GetClientLogger()->critical(__VA_ARGS__)

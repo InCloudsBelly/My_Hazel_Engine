@@ -14,6 +14,8 @@
 
 #include "MyHazel/Core/Log.h"
 
+#include "MyHazel/Debug/Instrumentor.h"
+
 #ifdef HZ_PLATFORM_WINDOWS
 	#include<windows.h>
 
