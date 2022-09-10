@@ -8,10 +8,10 @@ namespace MyHazel {
 	{
 		switch (severity)
 		{
-		case GL_DEBUG_SEVERITY_HIGH:	HZ_CORE_CRITICAL(message); return;
-		case GL_DEBUG_SEVERITY_MEDIUM:       HZ_CORE_ERROR(message); return;
-		case GL_DEBUG_SEVERITY_LOW:          HZ_CORE_WARN(message); return;
-		case GL_DEBUG_SEVERITY_NOTIFICATION: HZ_CORE_TRACE(message); return;
+		case GL_DEBUG_SEVERITY_HIGH:			HZ_CORE_CRITICAL(message); return;
+		case GL_DEBUG_SEVERITY_MEDIUM:			HZ_CORE_ERROR(message); return;
+		case GL_DEBUG_SEVERITY_LOW:				HZ_CORE_WARN(message); return;
+		case GL_DEBUG_SEVERITY_NOTIFICATION:	HZ_CORE_TRACE(message); return;
 		}
 
 		HZ_CORE_ASSERT(false, "Unknown severity level!");
@@ -46,9 +46,10 @@ namespace MyHazel {
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
-	void OpenGLRendererAPI::DrawIndexed(const Ref<VertexArray>& vertexArray)
+	void OpenGLRendererAPI::DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t indexCount)
 	{
-		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+		uint32_t count = indexCount ? vertexArray->GetIndexBuffer()->GetCount() : indexCount;
+		glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 }

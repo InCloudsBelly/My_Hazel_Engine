@@ -1424,6 +1424,9 @@
     <ClCompile Include="src\MyHazel\Core\Application.cpp">
       <Filter>src\MyHazel\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\MyHazel\Core\Input.cpp">
+      <Filter>src\MyHazel\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\MyHazel\Core\Layer.cpp">
       <Filter>src\MyHazel\Core</Filter>
     </ClCompile>
@@ -1431,6 +1434,9 @@
       <Filter>src\MyHazel\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\MyHazel\Core\Log.cpp">
+      <Filter>src\MyHazel\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MyHazel\Core\Window.cpp">
       <Filter>src\MyHazel\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\MyHazel\ImGui\ImGuiBuild.cpp">
@@ -1502,7 +1508,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\MyHazel\Core\Input.cpp" />
-    <ClCompile Include="src\MyHazel\Core\Window.cpp" />
   </ItemGroup>
 </Project>
