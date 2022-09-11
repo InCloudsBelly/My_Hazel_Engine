@@ -29,8 +29,8 @@ namespace MyHazel {
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
 
-		inline static Application& Get() { return *s_Instance; }
-		inline Window& GetWindow() { return *m_Window; }
+		static Application& Get() { return *s_Instance; }
+		Window& GetWindow() { return *m_Window; }
 	private:
 		void Run();
 		bool OnWindiwClosed(WindowClosedEvent & e);
@@ -42,7 +42,7 @@ namespace MyHazel {
 		LayerStack m_LayerStack;
 
 		Timestep m_Timestep;
-		float m_LastFrameTime;
+		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
 

@@ -12,7 +12,6 @@
 namespace MyHazel{ 
 	
 	Application* Application::s_Instance = nullptr;
-	
 
 	Application::Application()
 	{
@@ -78,6 +77,11 @@ namespace MyHazel{
 			HZ_PROFILE_SCOPE("RunLoop");
 
 			float time = (float)glfwGetTime();  //Platform::GetTime;
+			if (m_LastFrameTime == 0.0f)
+			{
+				m_LastFrameTime = time;
+				time = (float)glfwGetTime();
+			}
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 			if (!m_Minimized) {

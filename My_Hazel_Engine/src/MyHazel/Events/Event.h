@@ -41,7 +41,7 @@ namespace MyHazel {
 		virtual int GetCategoryFlags() const = 0;
 		virtual std::string ToString() const { return GetName(); }
 
-		inline bool IsInCategory(EventCategory category)
+		bool IsInCategory(EventCategory category)
 		{
 			return GetCategoryFlags() & category;
 		}
@@ -73,7 +73,8 @@ namespace MyHazel {
 		Event& m_Event;
 	};
 
-	inline std::ostream& operator<<(std::ostream& os, const Event& e) {
+	inline std::ostream& operator<<(std::ostream& os, const Event& e)
+	{
 		return os << e.ToString();
 	}
 
