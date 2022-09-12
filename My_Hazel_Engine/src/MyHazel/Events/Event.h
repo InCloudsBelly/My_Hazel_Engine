@@ -1,7 +1,7 @@
 #pragma once
 #include "hzpch.h"
 
-#include "MyHazel/Core/Core.h"
+#include "MyHazel/Core/Base.h"
 
 namespace MyHazel {
 
@@ -34,6 +34,7 @@ namespace MyHazel {
 	{
 		friend class EventDispatcher;
 	public:
+		virtual ~Event() = default;
 		bool Handled = false;
 
 		virtual EventType GetEventType() const = 0;

@@ -97,7 +97,7 @@ namespace MyHazel {
 			HZ_CORE_ASSERT(eol != std::string::npos, "Syntax error");
 			size_t begin = pos + typeTokenLength + 1; //Start of shader type name (after "#type " keyword)
 			std::string type = source.substr(begin, eol - begin);
-			HZ_CORE_ASSERT(ShaderTpyeFromString(type), "Invalid shader type specified");
+			HZ_CORE_ASSERT(ShaderTypeFromString(type), "Invalid shader type specified");
 
 			size_t nextLinePos = source.find_first_not_of("\r\n", eol); //Start of shader code after shader type declaration line
 			HZ_CORE_ASSERT(nextLinePos != std::string::npos, "Syntax error");
@@ -113,7 +113,7 @@ namespace MyHazel {
 		HZ_PROFILE_FUNCTION();
 
 		GLuint program = glCreateProgram();
-		HZ_CORE_ASSERT(shaderSources <= 2, "Now only support 2 shaders for now");
+		HZ_CORE_ASSERT( shaderSources.size() <= 2, "Now only support 2 shaders for now");
 		std::array<GLenum, 2> glShaderIDs;
 		int glShaderIDIndex = 0;
 		for (auto& kv : shaderSources)

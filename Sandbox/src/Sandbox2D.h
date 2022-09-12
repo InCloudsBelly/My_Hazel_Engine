@@ -21,7 +21,8 @@ private:
 
 	MyHazel::Ref<MyHazel::VertexArray> m_SquareVA;
 	MyHazel::Ref<MyHazel::Shader> m_FlatColorShader;
+
 	MyHazel::Ref<MyHazel::Texture2D> m_Texture;
 
-	glm::vec4 m_SquareColor = { 0.2,0.3,0.8,1.0f };
+	glm::vec4 m_ImGUIColor = { 0.2,0.3,0.8,1.0f };
 };

@@ -1,5 +1,5 @@
 #pragma once
-#include "MyHazel/Core/Core.h"
+#include "MyHazel/Core/Base.h"
 #include "Window.h"
 #include "LayerStack.h"
 
@@ -21,7 +21,7 @@ namespace MyHazel {
 	class Application
 	{
 	public:
-		Application();
+		Application(const std::string& name = "Hazel App");
 		virtual ~Application();
 
 		void OnEvent(Event& e);
@@ -29,8 +29,15 @@ namespace MyHazel {
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
 
-		static Application& Get() { return *s_Instance; }
+		void Close();
+		
 		Window& GetWindow() { return *m_Window; }
+
+
+		ImGuiLayer* GetImGuiLayer() { return m_ImGuiLayer; }
+
+		static Application& Get() { return *s_Instance; }
+
 	private:
 		void Run();
 		bool OnWindiwClosed(WindowClosedEvent & e);

@@ -2,7 +2,7 @@
 
 // 在 Hazel application 中应用
 
-#include "MyHazel/Core/Core.h"
+#include "MyHazel/Core/Base.h"
 #include "MyHazel/Core/Application.h"
 #include "MyHazel/Core/Layer.h"
 #include "MyHazel/Core/Log.h"
@@ -20,6 +20,7 @@
 
 #include "MyHazel/Renderer/Buffer.h"
 #include "MyHazel/Renderer/Shader.h"
+#include "MyHazel/Renderer/Framebuffer.h"
 #include "MyHazel/Renderer/VertexArray.h"
 #include "MyHazel/Renderer/Texture.h"
 

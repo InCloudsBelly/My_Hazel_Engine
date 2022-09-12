@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "MyHazel/Core/Core.h"
+#include "MyHazel/Core/Base.h"
 
 namespace MyHazel {
 
@@ -12,6 +12,7 @@ namespace MyHazel {
 
 		virtual uint32_t GetHeight() const = 0;
 		virtual uint32_t GetWidth() const = 0;
+		virtual uint32_t GetRendererID() const = 0;
 
 		virtual void SetData(void* data, uint32_t size) = 0;
 

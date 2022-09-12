@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Core.h"
+#include "MyHazel/Core/Base.h"
 #include "MyHazel/Core/Timestep.h"
-#include"MyHazel/Events/Event.h"
+#include "MyHazel/Events/Event.h"
 
 namespace MyHazel {
 	

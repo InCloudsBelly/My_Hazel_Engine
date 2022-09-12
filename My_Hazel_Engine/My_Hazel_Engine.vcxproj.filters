@@ -63,7 +63,7 @@
     <ClInclude Include="src\MyHazel\Core\Application.h">
       <Filter>src\MyHazel\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\MyHazel\Core\Core.h">
+    <ClInclude Include="src\MyHazel\Core\Base.h">
       <Filter>src\MyHazel\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\MyHazel\Core\EntryPoint.h">
@@ -114,6 +114,9 @@
     <ClInclude Include="src\MyHazel\Renderer\Buffer.h">
       <Filter>src\MyHazel\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\MyHazel\Renderer\FrameBuffer.h">
+      <Filter>src\MyHazel\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\MyHazel\Renderer\GraphicsContext.h">
       <Filter>src\MyHazel\Renderer</Filter>
     </ClInclude>
@@ -150,6 +153,9 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
@@ -161,9 +167,6 @@
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
       <Filter>src\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
-      <Filter>src\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>src\Platform\Windows</Filter>
@@ -1424,9 +1427,6 @@
     <ClCompile Include="src\MyHazel\Core\Application.cpp">
       <Filter>src\MyHazel\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\MyHazel\Core\Input.cpp">
-      <Filter>src\MyHazel\Core</Filter>
-    </ClCompile>
     <ClCompile Include="src\MyHazel\Core\Layer.cpp">
       <Filter>src\MyHazel\Core</Filter>
     </ClCompile>
@@ -1446,6 +1446,9 @@
       <Filter>src\MyHazel\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\MyHazel\Renderer\Buffer.cpp">
+      <Filter>src\MyHazel\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MyHazel\Renderer\FrameBuffer.cpp">
       <Filter>src\MyHazel\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\MyHazel\Renderer\GraphicsContext.cpp">
@@ -1482,6 +1485,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">

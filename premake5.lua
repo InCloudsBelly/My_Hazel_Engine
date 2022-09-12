@@ -1,11 +1,17 @@
 workspace "My_Hazel_Engine"
-    architecture "x64"
+    architecture "x86_64"
+	startproject "Engine_Editor"
 
     configurations{
         "Debug",
         "Release",
         "Dist"
     }
+
+    flags
+	{
+		"MultiProcessorCompile"
+	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
@@ -17,9 +23,12 @@ IncludeDir["ImGui"] = "My_Hazel_Engine/vendor/imGui"
 IncludeDir["glm"] = "My_Hazel_Engine/vendor/glm"
 IncludeDir["stb_image"] = "My_Hazel_Engine/vendor/stb_image"
 
-include "My_Hazel_Engine/vendor/GLFW"
-include "My_Hazel_Engine/vendor/GLAD"
-include "My_Hazel_Engine/vendor/imGui"
+group "Dependencies"
+    include "My_Hazel_Engine/vendor/GLFW"
+    include "My_Hazel_Engine/vendor/GLAD"
+    include "My_Hazel_Engine/vendor/imGui"
+
+group ""
 
 project "My_Hazel_Engine"
     location "My_Hazel_Engine"
@@ -34,11 +43,6 @@ project "My_Hazel_Engine"
     pchheader "hzpch.h"
     pchsource "My_Hazel_Engine/src/hzpch.cpp"
 
-    defines
-    {
-        "_CRT_SECURE_NO_WARNINGS"
-    }
-
     files
     {
         "%{prj.name}/src/**.h",
@@ -47,6 +51,12 @@ project "My_Hazel_Engine"
         "%{prj.name}/vendor/stb_image/**.cpp",
         "%{prj.name}/vendor/glm/glm/**.hpp",
         "%{prj.name}/vendor/glm/glm/**.inl",
+    }
+
+        defines
+    {
+        "_CRT_SECURE_NO_WARNINGS",
+		"GLFW_INCLUDE_NONE"
     }
 
     includedirs
@@ -58,7 +68,6 @@ project "My_Hazel_Engine"
         "%{IncludeDir.ImGui}",
         "%{IncludeDir.glm}",
         "%{IncludeDir.stb_image}",
-
     }
 
     links
@@ -74,9 +83,7 @@ project "My_Hazel_Engine"
 
         defines
         {
-            "HZ_PLATFORM_WINDOWS",
-            "HZ_BUILD_DLL",
-            "GLFW_INCLUDE_NONE",
+            "HZ_PLATFORM_WINDOWS"
         }
     
 
@@ -102,6 +109,7 @@ project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"
     language "c++"
+    cppdialect "C++17"
     staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -152,3 +160,55 @@ project "Sandbox"
         defines "HZ_DIST"
         runtime "Release"
         optimize "On"
+
+project "Engine_Editor"
+        location "Engine_Editor"
+        kind "ConsoleApp"
+        language "C++"
+        cppdialect "C++17"
+        staticruntime "on"
+
+        targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+        objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+        defines
+        {
+            "HZ_PLATFORM_WINDOWS"
+        }
+
+        files
+        {
+            "%{prj.name}/src/**.h",
+            "%{prj.name}/src/**.cpp"
+        }
+
+        includedirs
+        {
+            "My_Hazel_Engine/vendor/spdlog/include",
+            "My_Hazel_Engine/src",
+            "My_Hazel_Engine/vendor",
+            "%{IncludeDir.glm}"
+        }
+
+        links
+        {
+            "My_Hazel_Engine"
+        }
+
+        filter "system:windows"
+		systemversion "latest"
+
+	    filter "configurations:Debug"
+		    defines "HZ_DEBUG"
+		    runtime "Debug"
+		    symbols "on"
+
+	    filter "configurations:Release"
+		    defines "HZ_RELEASE"
+		    runtime "Release"
+		    optimize "on"
+
+	    filter "configurations:Dist"
+		    defines "HZ_DIST"
+		    runtime "Release"
+		    optimize "on"

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "MyHazel/Core/Core.h"
+#include "MyHazel/Core/Base.h"
 #include "MyHazel/Core/Layer.h"
 
 #include <vector>

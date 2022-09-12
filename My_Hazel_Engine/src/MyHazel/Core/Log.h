@@ -1,5 +1,5 @@
 #pragma once
-#include "MyHazel/Core/Core.h"
+#include "MyHazel/Core/Base.h"
 
 #include <spdlog/spdlog.h>
 #include <spdlog/fmt/ostr.h>
